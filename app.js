@@ -22,8 +22,8 @@ citySearchButton.addEventListener("click", () => {
 
 navigator.geolocation.getCurrentPosition(
     (position) => {
-        let lat = position.coords.latitude
-        let lon = position.coords.longitude
+        const lat = position.coords.latitude
+        const lon = position.coords.longitude
         
         getCurrentLocationWeather(lat, lon)        
     },
