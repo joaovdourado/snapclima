@@ -36,16 +36,15 @@ navigator.geolocation.getCurrentPosition(
     }
 )
 
-function getCurrentLocationWeather(lat, lon){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}units=metric&lang=pt_br&appid=${api_key}`)
+function getCityWeather(cityName) {
+    weatherIcon.src=`./assets/loading-icon.svg`
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pt_br&appid=${api_key}`)
         .then ((response) => response.json())
         .then ((data) => displayWeather(data))
 }
 
-
-function getCityWeather(cityName) {
-    weatherIcon.src=`./assets/loading-icon.svg`
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pt_br&appid=${api_key}`)
+function getCurrentLocationWeather(lat, lon){
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}units=metric&lang=pt_br&appid=${api_key}`)
         .then ((response) => response.json())
         .then ((data) => displayWeather(data))
 }
