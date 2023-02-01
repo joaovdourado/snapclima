@@ -44,7 +44,7 @@ function getCityWeather(cityName) {
     }
 
 function getCurrentLocationWeather(lat, lon) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}units=metric&lang=pt_br&appid=${api_key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=pt_br&appid=${api_key}`)
         .then((response) => response.json())
         .then((data) => displayWeather(data))
 }
@@ -71,7 +71,7 @@ function displayWeather(data) {
 
 function formatDate(epochTime){
     let date = new Date(epochTime * 1000)
-    let formattedDate = date.toLocaleDateString('pt-BR', { month: "long", day: 'numeric'})
+    let formattedDate = date.toLocaleDateString('pt-BR', { month: "long", day: 'numeric' })
     return `Hoje, ${formattedDate}`
 }
 
