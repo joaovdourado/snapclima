@@ -41,7 +41,7 @@ function getCityWeather(cityName) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pt_br&appid=${api_key}`)
         .then((response) => response.json())
         .then((data) => displayWeather(data))
-}
+    }
 
 function getCurrentLocationWeather(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}units=metric&lang=pt_br&appid=${api_key}`)
@@ -55,7 +55,7 @@ function displayWeather(data) {
         weather: [{ icon, description }],
         main: { temp, feels_like, humidity },
         wind: { speed },
-        sys: { sunrise, sunset }} = data
+        sys: { sunrise, sunset } } = data
 
     currentDate.textContent = formatDate(dt);
     cityName.textContent = name;
