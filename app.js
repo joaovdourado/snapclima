@@ -37,21 +37,20 @@ navigator.geolocation.getCurrentPosition(
 )
 
 function getCityWeather(cityName) {
-    weatherIcon.src=`./assets/loading-icon.svg`
+    weatherIcon.src = `./assets/loading-icon.svg`
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pt_br&appid=${api_key}`)
-        .then ((response) => response.json())
-        .then ((data) => displayWeather(data))
+        .then((response) => response.json())
+        .then((data) => displayWeather(data))
 }
 
 function getCurrentLocationWeather(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}units=metric&lang=pt_br&appid=${api_key}`)
-        .then ((response) => response.json())
-        .then ((data) => displayWeather(data))
+        .then((response) => response.json())
+        .then((data) => displayWeather(data))
 }
 
 function displayWeather(data) {
-    let { 
-        dt,
+    let { dt,
         name,
         weather: [{ icon, description }],
         main: { temp, feels_like, humidity },
